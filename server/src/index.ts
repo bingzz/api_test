@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 import responseHandler from './middleware/responseHandler';
 import errorHandler from './middleware/errorHandler';
 import authHandler from './middleware/authHandler';
@@ -21,18 +22,19 @@ const app = express();
 const port = DBPORT || 5000;
 
 // Configs
-app.use(express.json()); // ✅
+app.use(express.json());
+app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Authentication
-app.use(authHandler); // ✅
+app.use(authHandler);
 app.use(responseHandler);
 
 // Routes
 app.use('/api', router);
 
 // Handlers
-app.use(errorHandler); // ✅
+app.use(errorHandler);
 app.get('*', notFound);
 
 // Listeners

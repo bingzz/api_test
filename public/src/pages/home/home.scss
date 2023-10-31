@@ -1,0 +1,30 @@
+.Home {
+  padding: 1rem;
+  height: 100%;
+
+  h1 {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  .selection {
+    margin-top: 0.4rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: fit-content;
+    column-gap: .3rem;
+  }
+
+  .log-container {
+    padding: 0.2rem;
+    margin-top: 0.4rem;
+    border: 1px solid gray;
+    border-radius: 0.5rem;
+    height: 20rem;
+    overflow-y: auto;
+  }
+}

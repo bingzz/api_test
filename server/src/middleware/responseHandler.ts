@@ -1,9 +1,14 @@
 import { Request, Response, NextFunction } from "express";
+import { currentDate } from "../config/dateTime";
 
 function responseHandler(req: Request, res: Response, next: NextFunction) {
-  console.log('Response logged.');
+
+  const jsonObj = {
+    date: currentDate
+  };
 
   // Log Activity Here
+  console.log('Response logged:', jsonObj);
 
   next();
 }
