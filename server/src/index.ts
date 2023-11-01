@@ -35,7 +35,7 @@ app.use('/api', router);
 
 // Handlers
 app.use(errorHandler);
-app.get('*', notFound);
+app.use('*', notFound);
 
 // Listeners
 app.listen(port, () => {

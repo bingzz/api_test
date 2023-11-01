@@ -1,19 +1,19 @@
-import axios from "axios";
 import environment from "../environment/environment";
 import { ResponseData } from "../models/responseData";
+import api from "./apiService";
 
 const httpService = {
   GET: async (url: string): Promise<ResponseData> => {
-    return await axios.get(environment.apiURL + url);
+    return await api.get(url);
   },
   POST: async (url: string, body: any): Promise<ResponseData> => {
-    return await axios.post(environment.apiURL + url, body);
+    return await api.post(url, body);
   },
-  PUT: async (url: string, body: any): Promise<void> => {
-    return await axios.put(environment.apiURL + url, body);
+  PUT: async (url: string, body: any): Promise<ResponseData> => {
+    return await api.put(url, body);
   },
-  DELETE: async (url: string, body: any): Promise<void> => {
-    return await axios.delete(environment.apiURL + url, body);
+  DELETE: async (url: string, body: any): Promise<ResponseData> => {
+    return await api.delete(url, body);
   }
 };
 
